@@ -1,9 +1,5 @@
 # 📏 Quantity Measurement Web App
 
-![App Preview](frontIMAGE.png)
-
----
-
 ## 🚀 Overview
 The **Quantity Measurement Web App** is a modern web application that allows users to perform various operations on physical quantities such as:
 
