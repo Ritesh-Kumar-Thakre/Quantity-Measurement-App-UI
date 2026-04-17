@@ -1,0 +1,38 @@
+<div class="form-container">
+    <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <h2>QMA</h2>
+        <p>Quantity Measurement App</p>
+    </div>
+
+    <div class="choose-option">
+        <button [class.active]="isLoginMode" (click)="toggleMode()">Login</button>
+        <button [class.active]="!isLoginMode" (click)="toggleMode()">Signup</button>
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="f-group" *ngIf="!isLoginMode">
+            <label>Username</label>
+            <input type="text" [(ngModel)]="authData.username" name="username" required placeholder="Enter your username">
+        </div>
+        <div class="f-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="authData.email" name="email" required placeholder="Enter your email">
+        </div>
+        <div class="f-group">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="authData.password" name="password" required placeholder="Enter your password">
+        </div>
+        <div class="f-group" *ngIf="!isLoginMode">
+            <label>Confirm Password</label>
+            <input type="password" [(ngModel)]="authData.confirmPassword" name="confirmPassword" required placeholder="Re-enter your password">
+        </div>
+        <div *ngIf="errorMessage" class="error-alert">
+            <span>⚠️</span> {{ errorMessage }}
+        </div>
+        <div *ngIf="successMessage" class="success-alert">
+            <span>✅</span> {{ successMessage }}
+        </div>
+        <button type="submit" class="submit-btn">{{ isLoginMode ? 'Login' : 'Create Account' }}</button>
+    </form>
+</div>
